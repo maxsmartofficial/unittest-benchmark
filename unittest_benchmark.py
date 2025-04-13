@@ -5,6 +5,15 @@ import unittest
 
 
 class BenchmarkMixin:
+    """
+    Example usage:
+    ```
+    class MyTestCase(unittest.TestCase, unittest_benchmark.BenchmarkMixin):
+        def test_my_function_is_faster(self):
+            self.assertIsFaster(fast_function, benchmark_function)
+    ```
+    """
+
     @staticmethod
     def _timeit(callable):
         start = time.perf_counter()
@@ -20,7 +29,12 @@ class BenchmarkMixin:
         p_value: float = 0.001,
         msg: Any = None,
     ) -> None:
+        """
+        Assert that `faster` has a faster runtime than `benchmark`
 
+        Fails if `faster` is not significantly faster than `benchmark`
+        at the `p-value` significance level
+        """
         faster_samples = [self._timeit(faster) for _ in range(samples)]
         benchmark_samples = [self._timeit(benchmark) for _ in range(samples)]
 
