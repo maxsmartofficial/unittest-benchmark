@@ -11,8 +11,15 @@ class BenchmarkMixin:
         callable()
         end = time.perf_counter()
         return end - start
-    
-    def assertIsFaster(self, faster: Callable[[], Any], benchmark: Callable[[], Any], samples: int = 20, p_value: float = 0.001, msg: Any = None) -> None:
+
+    def assertIsFaster(
+        self,
+        faster: Callable[[], Any],
+        benchmark: Callable[[], Any],
+        samples: int = 20,
+        p_value: float = 0.001,
+        msg: Any = None,
+    ) -> None:
 
         faster_samples = [self._timeit(faster) for _ in range(samples)]
         benchmark_samples = [self._timeit(benchmark) for _ in range(samples)]
