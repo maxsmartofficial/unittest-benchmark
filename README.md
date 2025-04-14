@@ -1,7 +1,7 @@
 # unittest-benchmark
 Check a function has a faster runtime than a given benchmark.
 
-'Faster' is defined as having a significantly lower runtime by `time.perf_counter` according to a Mann-Whiteney-Wilcoxon test at, by default, the `0.001` significance level with a sample size of 20.
+'Faster' is defined as having a significantly lower runtime by `time.perf_counter` according to a Mann-Whitney-Wilcoxon test at, by default, the `0.001` significance level with a sample size of 20.
 
 ## Usage
 
