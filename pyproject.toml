@@ -6,7 +6,6 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "scipy>=1.15",
-    "pre-commit",
 ]
 
 [build-system]
@@ -18,3 +17,8 @@ name = "testpypi"
 url = "https://test.pypi.org/simple/"
 publish-url = "https://test.pypi.org/legacy/"
 explicit = true
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.2.0",
+]
